@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios';
-//import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Users = () => {
     const [items, setItems] = useState([]);
@@ -11,12 +11,12 @@ const Users = () => {
     }, []);
 
     
-    const newArray = items.filter((value) => {
+    const filteredUsers = items.filter((value) => {
         return value.login.includes(input.toLowerCase());
     })
-    console.log(newArray);
+    console.log(filteredUsers);
     const getUsers = () => {
-        axios.get("https://api.github.com/users?page=2&per_page=100").then(response => {
+        axios.get("https://api.github.com/users?page=1&per_page=100").then(response => {
             console.log(items);    
             setItems(response.data);
         })
@@ -25,7 +25,7 @@ const Users = () => {
     const cardStyle = {
         backgroundColor: '#FFFFFF',
         padding: '2rem',
-        maxWidth: '450px',
+        maxWidth: '420px',
         margin: '0 1.2rem'
     }
     const avatar = {
@@ -36,7 +36,6 @@ const Users = () => {
         objectPosition: 'center'
     } 
     const redirect = (url) => {
-        console.log(url);
         window.open(url, '_blank');
     }
     
@@ -50,7 +49,7 @@ const Users = () => {
            </input>
             <br></br>
             <div class="columns is-multiline is-mobile is-3">
-           {input.length > 0 ? newArray.map((item) => {
+           {input.length > 0 ? filteredUsers.map((item) => {
                return (   
                 <div class="column is-half" style={cardStyle}>
                 <div class="card">
@@ -69,12 +68,20 @@ const Users = () => {
                             <div class="content" style={{textAlign: 'left'}}>
                                 {item.html_url}
                                 <button 
-                                style={{marginTop: '1rem'}}
+                                style={{marginTop: '1rem', marginBottom: '1rem'}}
                                 class="button is-light"
                                 onClick={() => redirect(item.html_url)} 
-                                >Visit my profile</button>
+                                >Visit my profile</button><br></br>
+                                Checkout my Repos:
                                 <br></br>
+                                <Link to={`user/${item.login}`}>
+                                    <button
+                                    style={{marginTop: '1rem'}}
+                                    class="button is-light"
+                                    >Repos</button>
+                                </Link>
                             </div>
+                            
                             </div>
                         </div>
                     </div>

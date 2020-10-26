@@ -14,8 +14,8 @@ function App() {
       <Switch>
         <Route path="/" exact component={Home}></Route>
         <Route path="/Home" component={Home}></Route>
-        <Route path="/Users" component={Users}></Route>
-        <Route path="/Repos" component={Repos}></Route>
+        <Route path="/Users" exact component={Users}></Route>
+        <Route path="/user/:user" component={Repos}></Route>
       </Switch>
     </div>
     </Router>
