@@ -29,11 +29,6 @@ const Nav = () => {
                             Users
                         </a>
                     </Link>
-                    <Link to="/Repos">
-                        <a class="navbar-item">
-                            Repositories
-                        </a>
-                    </Link>
                 </div>
             </div>
         </nav>
