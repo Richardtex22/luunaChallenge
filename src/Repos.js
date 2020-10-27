@@ -51,7 +51,7 @@ const Repos = ({ match }) => {
     return (
         <div className="container">
            <h1>Repositories</h1><br></br>
-           <input class="input input-space is-mobile"
+           <input class="input-space"
            placeholder="Search for user Repositories"
            onChange={(e) => setSearch(e.target.value)}
            > 
