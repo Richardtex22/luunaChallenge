@@ -23,7 +23,6 @@ const Repos = ({ match }) => {
     const filteredRepos = repos.filter((value) => {
         return value.name.includes(search.toLowerCase());
     })
-    console.log(filteredRepos);
 
     const redirect = (url) => {
         window.open(url, '_blank');
@@ -31,45 +30,39 @@ const Repos = ({ match }) => {
     
     const getColor = () => {
         let randomColor = Math.floor(Math.random()*16777215).toString(16);
-        const bgColor = "#"+randomColor;
+        const bgColor = "#" + randomColor;
         let style = {
             backgroundColor: bgColor
         }
         setColor(style);
         console.log(color);
     }
-
     const yellow = {
         backgroundColor: '#ffdd57'
-    }
-    const contain = {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'left'
     }
     
     return (
         <div className="container">
            <h1>Repositories</h1><br></br>
            <input class="input-space"
-           placeholder="Search for user Repositories"
+           placeholder="Search for user Repos"
            onChange={(e) => setSearch(e.target.value)}
            > 
            </input>
-           <div class="columns is-multiline is-mobile is-4">
-           {search.length > 0 && repos && repos.length > 0 ? filteredRepos.map((card) => {
+           <div class="columns is-multiline is-desktop is-narrow-mobile is-narrow-tablet is-3">
+           {filteredRepos.length > 0 ? filteredRepos.map((card) => {
                return (   
-                <div class="column is-half" id={card.id}>
-                <div class="card" style={{textAlign: 'left'}}>
+                <div class="column is-half is-narrow-mobile is-narrow-tablet is-6" id={card.id}>
+                <div class="card">
                     <div class="card-content">
                         <div class="media">
-                                <div class="media-content">
+                                <div class="media-content card-text">
                                     <p class="subtitle is-4">
                                         <a onClick={() => redirect(card.html_url)}>{card.name}</a></p>
                                     <p class="subtitle is-5" style={{height: '70px', overflowY: 'scroll'}}>{card.description ? 
                                     card.description : 
                                     "N/A"}</p>
-                                    <div style={contain}>
+                                    <div class="last-container">
                                     <div class="circle-color" style={card.language === "JavaScript" ? yellow : color}>
                                         </div>
                                     <p class="subtitle is-6">{card.language ? card.language : "-"}</p>
@@ -80,9 +73,9 @@ const Repos = ({ match }) => {
                         </div>
                     </div>
            )})
-        : null }
+        : <h1 class="title is-3 center-cont" style={{marginTop: '2rem'}}>Repos dont found</h1> }
         </div>
-        </div>
+    </div>
     )
 }
 
