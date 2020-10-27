@@ -66,20 +66,20 @@ const Users = () => {
                                 </div>
                             </div>
                             <div class="content" style={{textAlign: 'left'}}>
-                                {item.html_url}
+                                <p style={{wordBreak: 'break-all', marginBottom: '.5rem'}}>{item.html_url}</p>
                                 <button 
                                 style={{marginTop: '1rem', marginBottom: '1rem'}}
-                                class="button is-light"
+                                class="button is-link is-outlined"
                                 onClick={() => redirect(item.html_url)} 
                                 >Visit my profile</button><br></br>
-                                Checkout my Repos:
-                                <br></br>
+                                Checkout my Repos: <br></br>
                                 <Link to={`user/${item.login}`}>
                                     <button
                                     style={{marginTop: '1rem'}}
-                                    class="button is-light"
+                                    class="button is-info is-outlined"
                                     >Repos</button>
                                 </Link>
+                                
                             </div>
                             
                             </div>
