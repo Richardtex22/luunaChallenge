@@ -25,7 +25,7 @@ const Users = () => {
     const cardStyle = {
         backgroundColor: '#FFFFFF',
         padding: '2rem',
-        maxWidth: '420px',
+        maxWidth: '400px',
         margin: '0 1.2rem'
     }
     const avatar = {
@@ -42,16 +42,16 @@ const Users = () => {
     return (
         <div class="container">
            <h1 class="title">USERS</h1><br></br>
-           <input class="input input-space"
-           placeholder="Search for users"
+           <input class="input-space"
+           placeholder="Search for Users"
            onChange={(e) => setInput(e.target.value)}
            > 
            </input>
             <br></br>
-            <div class="columns is-multiline is-mobile is-3">
+            <div class="columns is-multiline is-desktop is-narrow-mobile is-narrow-tablet is-3">
            {input.length > 0 ? filteredUsers.map((item) => {
                return (   
-                <div class="column is-half" style={cardStyle}>
+                <div class="column is-half is-narrow is-half-tablet is-offset-1 is-4" style={cardStyle}>
                 <div class="card">
                     <div class="card-content">
                         <div class="media">
