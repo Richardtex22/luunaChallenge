@@ -14,10 +14,9 @@ const Users = () => {
     const filteredUsers = items.filter((value) => {
         return value.login.includes(input.toLowerCase());
     })
-    console.log(filteredUsers);
+    
     const getUsers = () => {
-        axios.get("https://api.github.com/users?page=1&per_page=100").then(response => {
-            console.log(items);    
+        axios.get("https://api.github.com/users?page=1&per_page=100").then(response => {  
             setItems(response.data);
         })
     }
@@ -43,7 +42,7 @@ const Users = () => {
         <div class="container">
            <h1 class="title">USERS</h1><br></br>
            <input class="input-space"
-           placeholder="Search for Users"
+           placeholder="Search for Users in Github"
            onChange={(e) => setInput(e.target.value)}
            > 
            </input>
