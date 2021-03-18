@@ -10,7 +10,6 @@ const Users = () => {
         getUsers();
     }, []);
 
-    
     const filteredUsers = items.filter((value) => {
         return value.login.includes(input.toLowerCase());
     })
