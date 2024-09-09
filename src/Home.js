@@ -8,7 +8,7 @@ const Home = () => {
     }
     return (
         <div class="container">
-           <h1 class="title is-3">This is Luuna.mx frontEnd challenge. </h1> 
+           <h1 class="title is-3">This is Zebrands frontEnd challenge. </h1> 
            <div class="center-cont">
                 <div style={center}>
                 <p class="subtitle is-4">Tools used in this project:</p>
